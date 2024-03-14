@@ -1,0 +1,219 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  visibility: hidden;
+  & * {
+    visibility: inherit !important;
+  }
+  &_visible {
+    visibility: visible;
+  }
+  &__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    background-color: #000000;
+  }
+  &__window {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    width: 409px;
+    min-height: 399px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 60px;
+    background-color: #fff;
+  }
+  &__close_btn {
+    position: absolute;
+    top: 13px;
+    right: -38px;
+    background-color: transparent;
+    border: 0 solid transparent;
+    height: 25px;
+    cursor: pointer;
+  }
+  &__title {
+    margin: 0 0 8px;
+    font: 500 normal 36px/1 'Dodo';
+  }
+  &__text {
+    font: 600 normal 16px/20px 'Dodo';
+    color: #5c6370;
+  }
+  &__phone_num {
+    &_container {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+    }
+    &_text {
+      font: 600 normal 16px/20px 'Dodo';
+    }
+  }
+  &__selector_title {
+    margin-top: 24px;
+    font: 500 normal 14px/18px 'Dodo';
+    margin-bottom: 8px;
+    color: #5c6370;
+    &:first-child {
+      width: 101px;
+    }
+  }
+  &__country_selector {
+    &_box {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+    width: 101px;
+    padding: 0 20px 0 16px !important;
+    height: 56px !important;
+    border-radius: 12px !important;
+    border: 1px solid #e2e2e9;
+    --react-international-phone-country-selector-background-color: #fff;
+    --react-international-phone-country-selector-background-color-hover: #fff;
+    --react-international-phone-country-selector-arrow-size: 0px;
+  }
+  &__flag {
+    &_icon {
+      margin: 0;
+      width: 29.2px;
+      border-radius: 2px;
+    }
+    &_arrow {
+      content: '';
+      width: 18px;
+      height: 9px;
+      background: url('/icons/arrow_down.svg');
+    }
+  }
+  &__phone_input {
+    padding: 16px !important;
+    width: 100%;
+    --react-international-phone-height: 56px;
+    --react-international-phone-border-radius: 12px;
+    border-bottom-left-radius: 12px !important;
+    border-top-left-radius: 12px !important;
+    --react-international-phone-border-color: rgb(226, 226, 233);
+    --react-international-phone-font-size: 16px;
+    line-height: 20px !important;
+    --react-international-phone-text-color: #000;
+    &:focus {
+      border-color: #ff6900;
+      outline: none;
+    }
+  }
+
+  &__dropdown {
+    &_container {
+      margin-top: 20px;
+      padding: 0;
+      width: 345px;
+      height: 190px;
+      border-radius: 12px;
+      --react-international-phone-dropdown-shadow: rgba(0, 0, 0, 0.05) 0px 9px
+          28px 8px,
+        rgba(0, 0, 0, 0.08) 0px 6px 16px, rgba(0, 0, 0, 0.12) 0px 3px 6px -4px;
+    }
+    &_list {
+      &_item {
+        padding: 6px 12px !important;
+        --react-international-phone-dropdown-item-height: 38px;
+        --react-international-phone-dropdown-item-font-size: 16px;
+        outline: none;
+        &:hover {
+          background: rgb(243, 243, 247);
+          // border-radius: 0px;
+        }
+      }
+    }
+    &_flag {
+      width: 23px;
+      border-radius: 2px;
+    }
+    &_country_name {
+      font-weight: 500;
+    }
+    &_dial_code {
+      --react-international-phone-dropdown-item-text-color: #5c6370;
+      font-weight: 500;
+    }
+  }
+
+  &__btn {
+    margin-top: auto;
+  }
+
+  &__change_phone_num_text {
+    margin-left: 8px;
+    border: 0;
+    outline: none;
+    font: 600 normal 16px/20px 'Dodo';
+    color: rgb(255, 105, 0);
+    background-color: transparent;
+    cursor: pointer;
+    &:hover,
+    &:active {
+      color: rgb(209, 87, 0);
+    }
+  }
+  &__error_text {
+    // visibility: hidden !important;
+    margin-top: 8px;
+    font: 600 normal 16px/20px 'Dodo';
+    text-align: center;
+    color: rgb(255, 59, 48);
+  }
+  &__code_inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+    min-height: 92px;
+    &.error {
+      & input {
+        border-color: rgb(255, 59, 48) !important;
+        color: rgb(255, 59, 48) !important;
+        &:focus {
+          border-color: rgb(255, 59, 48) !important;
+        }
+      }
+      .modal__error_text {
+        visibility: visible !important;
+      }
+    }
+    & input {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 52px !important;
+      height: 60px !important;
+      outline: none !important;
+      font: 600 normal 36px/1 'Dodo' !important;
+      text-align: center !important;
+      border: 1px solid rgb(211, 213, 222) !important;
+      border-radius: 12px !important;
+      background-color: rgb(255, 255, 255) !important;
+      color: rgb(0, 0, 0) !important;
+      box-shadow: none !important;
+      &:not(:last-child) {
+        margin-right: 12px !important;
+      }
+      &:focus {
+        border-color: rgb(255, 105, 0) !important;
+      }
+    }
+  }
+}

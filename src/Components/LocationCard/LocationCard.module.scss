@@ -1,0 +1,44 @@
+.location_card {
+  display: flex;
+  justify-content: space-between;
+  width: 290px;
+  font-size: 15px;
+  line-height: 21px;
+  &__rating_box {
+    margin-bottom: 15px;
+  }
+}
+
+.trian_box {
+  position: absolute;
+  left: 180px;
+  top: 0;
+}
+
+.location_header {
+  padding-top: 35px;
+
+  &__title {
+    font-size: 20px;
+    line-height: 24px;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    text-decoration: none;
+  }
+  &__title:hover {
+    color: orange;
+  }
+
+  &__text {
+    margin: 15px 0 11px 0;
+  }
+  &__metro_img {
+    position: absolute;
+    margin-left: -25px;
+    width: 20px;
+  }
+
+  &__time {
+    margin-top: 6px;
+  }
+}
