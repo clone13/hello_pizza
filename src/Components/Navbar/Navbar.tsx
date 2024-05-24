@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useContext } from "react";
 // import { Link } from 'react-router-dom';
 import classNames from "classnames";
 
-import { Button, Notification } from "..";
+import { Button } from "..";
 
 import { SECTION_NAVIGATION_LINKS } from "../../constants";
 import { ProductsAmountContext, SidebarContext } from "../../context";
