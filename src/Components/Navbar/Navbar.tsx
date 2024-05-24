@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, useContext } from "react";
+// import { Link } from 'react-router-dom';
 import classNames from "classnames";
 
-import { Button } from "..";
+import { Button, Notification } from "..";
 
 import { SECTION_NAVIGATION_LINKS } from "../../constants";
 import { ProductsAmountContext, SidebarContext } from "../../context";
@@ -11,7 +12,7 @@ import { Link } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
-  const navRef = useRef<HTMLElement | undefined>();
+  const navRef = useRef<HTMLElement | any>();
   const { setIsSidebarVisible } = useContext(SidebarContext);
   const [isNavLogHidden, setIsNavLogHidden] = useState(true);
   const productService = useRef(new ProductService());

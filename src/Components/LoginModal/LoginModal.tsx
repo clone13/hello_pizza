@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { PhoneNumberUtil } from 'google-libphonenumber';
-import { PhoneInput, PhoneInputProps } from 'react-international-phone';
+import { PhoneInput } from 'react-international-phone';
 import ReactCodeInput from 'react-code-input';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,7 +14,6 @@ import { isScrollDisabled } from '../../utilities';
 
 import 'react-international-phone/style.css';
 import styles from './LoginModal.module.scss';
-// import { reactCodeInput } from 'react-code-input/styles/style.scss';
 
 const phoneUtil = PhoneNumberUtil.getInstance();
 
@@ -34,21 +33,16 @@ const LoginModal = () => {
     setLoginModalVisible(false);
     setIsCodeInvalid(false);
   };
-  const { isLoginModalVisible, setLoginModalVisible } =
-    useContext(LoginModalContext);
 
-  const phoneInputRef =
-    useRef<
-      React.ForwardRefExoticComponent<
-        PhoneInputProps & React.RefAttributes<PhoneInputRefType>
-      >
-    >(null);
+  const { isLoginModalVisible, setLoginModalVisible } = useContext(LoginModalContext);
+
+  const phoneInputRef = useRef<HTMLInputElement>(null);
   const [phone, setPhone] = useState('');
   const isValid = isPhoneValid(phone);
 
   const [modalState, setModalState] = useState<'login' | 'code'>('login');
 
-  const [phoneValue, setPhoneValue] = useState(null);
+  const [phoneValue, setPhoneValue] = useState('');
   const [isCodeInvalid, setIsCodeInvalid] = useState(false);
   const { setIsLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -100,7 +94,7 @@ const LoginModal = () => {
             size='big-btn'
             disabled={!isValid}
             onClick={() => {
-              setPhoneValue(phoneInputRef.current!.value);
+              setPhoneValue(phone);
               setModalState('code');
               const phoneWithoutPlus = phone.slice(1);
               authService.current.sendPhoneNumber(phoneWithoutPlus);
@@ -141,10 +135,9 @@ const LoginModal = () => {
             Изменить
           </button>
         </p>
-        {/* Для дефолтного стиля надо удалить styles.error на следующей строке */}
         <div
           className={classNames(
-            styles.modal__code_inputs //styles.error
+            styles.modal__code_inputs
           )}
         >
           <ReactCodeInput

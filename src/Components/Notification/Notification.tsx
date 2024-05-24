@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import classNames from 'classnames';
 
 import styles from './Notification.module.scss';
@@ -18,6 +18,7 @@ const Notification = ({ title, amount }: NotificationProps) => {
   //     setState(styles.enter_active);
   //   }, 1000);
   // }, []);
+  setIsVisible(true)
 
   return (
     isVisible && (

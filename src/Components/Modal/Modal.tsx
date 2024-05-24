@@ -90,7 +90,7 @@ const pizzaImages = [
   },
 ];
 
-const Modal = (props) => {
+const Modal = (props :any) => {
   console.log(props.pizzaData);
   const { isModalVisible, setIsModalVisible } = useContext(ModalContext);
   const { productsAmount, setProductsAmount } = useContext(
@@ -104,7 +104,7 @@ const Modal = (props) => {
 
   const pizzaImage = filterPizzaImage(size, doughType);
 
-  const doughTypeSwitchClick = (e: React.SyntheticEvent<HTMLLabelElement>) => {
+  const doughTypeSwitchClick = (e: any) => {
     if (!(e.target instanceof HTMLLabelElement)) {
       return;
     }
@@ -123,7 +123,7 @@ const Modal = (props) => {
     }
   };
 
-  const sizeSwitchClick = (e: React.SyntheticEvent<HTMLLabelElement>) => {
+  const sizeSwitchClick = (e: any) => {
     if (!(e.target instanceof HTMLLabelElement)) {
       return;
     }
