@@ -15,7 +15,7 @@ const HeaderNav = () => {
           {HEADER_LINKS.map(({ title, link }, index) => {
             return (
               <li className={styles["header__nav-item"]} key={index}>
-                <Link to={link} className={styles["header__nav-link"]}>
+                <Link to={link || '/'} className={styles["header__nav-link"]}>
                   {title}
                 </Link>
               </li>
